@@ -1,0 +1,147 @@
+// Scss Document
+
+$ct-light: #f5cac3;
+$bdr-color: solid #f6bd60;
+$bg-light: #f7ede2;
+$hdr-color: darksalmon;
+$h1-color: #d08360;
+$h1-ftsz: 50px;
+$pg-color: #de8885;
+$hd-color: #F4A171;
+$bg-base: crimson;
+$bs-color: lightgray;
+$li-color: #84a59d;
+$li-size: 25px;
+$bld-color:  lightcoral;
+$ar-color: white;
+$bg-card: #f2f8f9;
+$h3-color: #fff;
+
+
+#container {
+	width: 1040px;
+	margin: auto;
+	padding: 30px;
+	font-family: sans-serif;
+	background-color: #f5cac3;
+	border-radius: 30px;
+	border: $bdr-color;
+}
+body {
+	background-color: $bg-light;
+}
+header {
+	text-align: center;
+	border-style: double;
+	border-radius: 10px;
+	padding: 15px;
+	border-color: $hdr-color;
+}
+h1 {
+	font-family: 'Abril Fatface', cursive;
+	color: $h1-color;
+	font-size: $h1-ftsz;
+}
+p {
+	color: $pg-color;
+	line-height: $li-size;
+	font-family: 'Special Elite', cursive;
+}
+h2, h3 {
+	font-family: 'Cinzel', serif;
+	color: $hd-color;
+}
+div {
+	& + h2 {
+		text-align: center;
+		background-color: $bg-base;
+		border-radius: 30px;
+		color: $bs-color;
+		padding: 10px;
+		text-shadow: 5px 3px 7px black;
+	}
+}
+.mainContent {
+	line-height: 1.4em;
+	display: -ms-grid;
+	display: grid;
+}
+ol {
+	list-style-type: none;
+	counter-reset: li;
+}
+li {
+	font-family: 'PT Mono', monospace;
+	color: $pg-color;
+	&:before {
+		counter-increment: li;
+		content: counter(li, decimal-leading-zero);
+		color: $li-color;
+		font-size: $li-size;
+		margin-right: 0.25em;
+	}
+}
+strong {
+	color: $bld-color;
+}
+.card {
+	display: flex;
+}
+.go-corner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	background-color: $bg-base;
+	border-radius: 0 4px 0 32px;
+}
+.go-arrow {
+	margin-top: -4px;
+	margin-right: -4px;
+	color: $ar-color;
+	font-family: courier, sans;
+}
+.card1 {
+	display: block;
+	position: relative;
+	max-width: 262px;
+	background-color: $bg-card;
+	border-radius: 4px;
+	padding: 32px 24px;
+	margin: 12px;
+	text-decoration: none;
+	z-index: 0;
+	overflow: hidden;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: -16px;
+		right: -16px;
+		background: $bg-base;
+		height: 32px;
+		width: 32px;
+		border-radius: 32px;
+		transform: scale(1);
+		transform-origin: 50% 50%;
+		transition: transform 0.25s ease-out;
+	}
+	&:hover {
+		&:before {
+			transform: scale(21);
+		}
+		p {
+			transition: all 0.3s ease-out;
+			color: rgba(255, 255, 255, 0.8);
+		}
+		h3 {
+			transition: all 0.3s ease-out;
+			color: $h3-color;
+		}
+	}
+}
